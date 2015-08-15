@@ -1,0 +1,79 @@
+body{
+    
+    background-image: url("../img/preview.jpg");
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    }
+
+
+
+.row
+{
+       background-color: rgba(223, 224, 245, 0.53);
+    padding: 10px;
+}
+.row:before{
+    filter: blur(10px);
+
+}
+
+.nav-bar-text{
+
+    color: 
+
+}
+
+.drop-sh
+{
+    filter: drop-shadow(1px 5px 2px #FFF);
+}
+
+.carousel-inner {
+    
+    text-align: center;
+    
+}
+.carimage{
+    filter: drop-shadow(1px 5px 2px #FFF);
+    margin: auto auto;
+    vertical-align: middle;
+
+
+}
+.col-lg-5{
+    padding: 13px;
+    border: 1px solid white;
+   
+    border-radius: 3px;
+}
+.white-text {
+    color:#4E0B0B;
+}
+.col-lg-3{
+  padding: 13px;
+border: 1px solid #FFF;
+border-radius: 3px;
+margin-left: 14px;
+width: 34%;
+background-color: rgba(245, 245, 245, 0.52);
+}
+.col-lg-4{
+    padding: 1px;
+}
+.user{
+    margin:3px;
+}
+.fa-twitter {
+    color: white;
+}
+._cbc-t{
+    background-color: #00a4e4;
+    color: white;
+}
+._cbc-g
+{
+    background-color: #ff4c4c;color: white;
+}
+._cbc-f{
+    background-color: #4264AA;color: white;
+}

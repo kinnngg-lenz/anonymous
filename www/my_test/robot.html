@@ -1,0 +1,236 @@
+<!doctype html>
+<html lang="en">
+		<head>
+			<meta charset="utf-8">
+			
+			<style type="text/css">
+
+			#circle {
+				height: 100px;
+				width: 100px;
+				border: 1px solid black;
+				border-radius: 50px;
+				background-color: green;
+				margin:10px auto;
+				position:relative;
+				transition:left 1s linear;
+				-webkit-transition:1s linear;
+			}
+			#innerc{
+				height: 5px;
+				width: 5px;
+				background-color:red;
+				border: 1px solid black;
+				border-radius: 50px;
+				position:relative;
+				top: 50px;
+				right: 0px;
+				transition: top 1s, right 1s;
+				-webkit-transition: top 3s, right 3s;
+			}
+			#bh{
+				position: absolute;
+				height: 90px;
+				width: 90px;
+				border: 1px solid black;
+				border-radius: 50px;
+			}
+			#sh{
+				position: absolute;
+				height: 80px;
+				width: 80px;
+				border: 1px solid #000;
+				border-radius: 50px;
+				top: 126px;
+				left: 13px
+			}
+			.hand{
+				
+				position: relative;
+				top: 13px;
+				right: -38px;
+			}
+			.b{
+				position: relative; top: 17px;
+			}
+			.s{
+				position: relative; right: -33px;
+
+			}
+			#bar,#bar1{
+				height: 10px; width: 100px; border: 2px solid black; position: relative; bottom: -95px;
+			}
+			/*#bar1{
+				height: 10px; width: 100px; border: 2px solid black; position: relative; bottom: -95px;
+			}*/
+			.def{
+				border: 1px solid black; border-radius: 50%; position: relative;
+			}
+			#sun { height: 113px;width: 113px;margin: auto;top: 65px;}
+			#earthpath{ height: 60px; width:689px; margin: auto;}
+			#earth{     height: 43px;    width: 43px;    top: 9px;}
+
+			
+			</style>
+		</head>
+		<body>
+			<div id="circle">
+            	<div id="innerc"></div>
+
+            	</div>
+            	<div style="border: 1px solid #000;position: relative;top: -10px;"></div>
+            <div style="margin=auto auto">	
+            <div id="bh"><p class="hand b">-------><p></div>
+            <div id="sh"><p class="hand s">-----></p></div>
+        </div>
+        <div id="bar"></div>
+        <div id="bar1"></div>
+
+			<button id="request"  onClick="ellipse()" style="position: relative;top: 96px;"> button</button>
+			<button id="button"  onClick="move2()" style="position: relative;top: 96px;"> button</button>
+
+<div id="solar" style="position: relative; top: 129px">
+	<div class="def" id="sun"></div>
+	<div class="def" id="earthpath">
+		<div class="def" id="earth"></div>
+	</div>
+
+</div>
+
+
+
+            <script>
+				var element= document.getElementById("innerc");
+				
+				var x=0,a=0,b=0;
+					x_max=100,
+					y_min=0,
+					y=0,
+					y_max=100,
+					y_min=0,
+					eqn=0;
+					cor_x=[],
+					cor_y=[];
+					index=0;
+					var i=0,
+					pos=1;
+					
+				function get_coordinate()
+				{
+					for(y=0;y<=y_max;y++)
+					{
+						for(x=0;x<=x_max;x++)
+						{   
+							eqn=(x*x) + (y*y) -(100*x) -(100*y) +2500;
+							if(eqn===0)
+							{
+								cor_y[index]=x + "px";
+								cor_x[index++]=y + "px";
+								console.log("the get_coordinate is" + x + " " +y);
+							}	
+						}
+					}
+				}
+
+			/*	function get_coordinate1()
+				{	
+					while(i!=360)
+					{	cor_x[index]= (50 + 50 * Math.acos(i * (Math.PI / 180)));
+						 cor_y[index++]= (50 + 50 * Math.acos(i * (Math.PI / 180)));
+						 i++;
+						 console.log(cor_x); console.log(cor_y);
+					 }
+					
+				}
+			*/	
+				
+				
+			function watch()
+			{   	
+					
+						document.getElementById("bh").style.transform="rotate(" + i.toString() + "deg" + ")";
+
+								if(i%360==0)
+								{
+									document.getElementById("sh").style.transform="rotate(" + z.toString() + "deg" + ")";
+									z++;
+								}			
+				i++;
+			}
+			
+			
+			
+			
+				
+				
+			function bar()
+			{	last_height=parseInt(document.getElementById("bar").style.width),
+				left_position = document.getElementById("bar").style.left;
+				random_width=Math.random() * 10;
+				if(last_height!=document.getElementById("bar").style.width)
+				{
+					document.getElementById("bar").style.left= left_position.toString() + "px";
+					left_position++;
+				}
+
+				
+			}
+
+			//maj_ax=; 104
+			function get_cor_ellipse()
+			{	maj_ax=344;min_ax=30;
+				a=parseInt(maj_ax); b=parseInt(min_ax); var i=0;
+					
+					for(x=0;x<=a;x++)
+					{	//console.log("first loop");
+						for(y=0;y<=b;y++)
+						{//	console.log("sec loop");
+							ellipse = ((x*x)/(a*a)) + ((y*y)/(b*b));
+							if(ellipse===1)
+							{	//console.log("found!!!!");
+								cor_x[i]=x;
+								cor_y[i]=y;
+								i++;
+							}
+						}
+					}
+
+			}
+
+			function move()
+			{   	
+					
+					
+					document.getElementById("circle").style.transform="rotate(" + i.toString() + "deg" + ")";
+					document.getElementById("circle").style.left=i.toString() + "px";
+					//console.log(document.getElementById("circle").style.transform);
+					i++;
+					
+				
+			}
+			var z=0;
+				get_cor_ellipse();
+				function ellipse()
+				{	
+					document.getElementById("earth").style.right = cor_x[z].toString() + "px";
+					document.getElementById("earth").style.top = cor_x[z].toString() + "px";
+					z++;
+				}
+				
+
+				
+			//get_coordinate();	
+			 
+			function move1()
+			{
+				setInterval("move()",6);
+				
+			}
+			function move2()
+			{
+				setInterval("watch()",6);
+				
+			}
+							</script>
+		</body>
+</html>

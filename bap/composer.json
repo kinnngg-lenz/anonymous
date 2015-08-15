@@ -1,0 +1,15 @@
+{
+    "name": "kinnngg/bap",
+    "description": "Nothing",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Zishan Ansari",
+            "email": "kinnngg786@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "kinnngg/swat4query": "dev-master"
+    }
+}
